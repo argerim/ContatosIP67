@@ -9,7 +9,21 @@
 #import "contact.h"
 
 @implementation Contact
+
 -(NSString *)description {
     return [NSString stringWithFormat:@"Name: %@, Phone: %@, Email: %@ Address: %@ Site: %@", self.name, self.phone, self.email, self.address, self.site];
 }
+
+-(CLLocationCoordinate2D)coordinate {
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
+
+-(NSString *)title {
+    return self.name;
+}
+
+-(NSString *)subtitle {
+    return self.email;
+}
+
 @end
