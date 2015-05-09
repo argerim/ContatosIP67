@@ -38,7 +38,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [self.tableView reloadData];
-    if (self.line >= 0 && [self.dao.contacts count] > 0) {
+    if (self.line == 0 && [self.dao.contacts count] > 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.line inSection:0];
         [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];

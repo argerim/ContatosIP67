@@ -57,7 +57,8 @@
 
 -(void)getDataOfForm {
     if (!self.contact) {
-        self.contact = [Contact new];
+        //self.contact = [Contact new];
+        self.contact = [self.dao novoContato];
     }
     if ([self.addImage backgroundImageForState:UIControlStateNormal]) {
         self.contact.image = [self.addImage backgroundImageForState:UIControlStateNormal];
