@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ContactListViewController.h"
+#import "ContactsInMapViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    ContactListViewController *list = [ContactListViewController new];
+    UINavigationController *navList = [[UINavigationController alloc] initWithRootViewController:list];
+    ContactsInMapViewController *mapContacts = [ContactsInMapViewController new];
+    UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:mapContacts];
+    UITabBarController *tabBarController = [UITabBarController new];
+    tabBarController.viewControllers = @[navList, navMap];
+    
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
