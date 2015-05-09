@@ -46,7 +46,10 @@ static ContactDao *defaultDao = nil;
     return self.contacts[position];
 }
 -(void)removeContactOfPosition:(NSInteger)position {
+    Contact *removeContact = [self getContactPosition:position];
+    [self.managedObjectContext deleteObject:removeContact];
     [self.contacts removeObjectAtIndex:position];
+    [self saveContext];
 }
 -(NSInteger)getPositionOfContact:(Contact *) contact {
     return [self.contacts indexOfObject:contact];
